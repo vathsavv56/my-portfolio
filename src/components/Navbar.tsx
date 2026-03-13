@@ -1,4 +1,4 @@
-import logo from "../assets/logo.svg";
+
 import { NavLink } from "react-router";
 import { cn } from "../cn";
 import { useState } from "react";
@@ -24,8 +24,8 @@ const Navbar = () => {
               to={item.to}
               key={index}
               className={({ isActive }) =>
-                cn("text-sm text-gray-500 hover:text-gray-900 transition-colors", {
-                  "text-gray-900 font-medium": isActive,
+                cn("text-sm text-gray-500", {
+                  "text-gray-50 font-medium": isActive,
                 })
               }
             >

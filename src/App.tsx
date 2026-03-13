@@ -1,11 +1,35 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
+
 import Main from "./components/Main";
+import Resume from "./components/Resume";
+import Projects from "./components/Projects";
+import Blogs from "./components/Blogs";
 import { cn } from "./cn";
+import Home from "./components/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    children : [
+      {
+        index:true,
+        element:<Home/>
+      }
+    ]
+  },
+
+  {
+    path: "/resume",
+    element: <Resume />,
+  },
+  {
+    path: "/projects",
+    element: <Projects />,
+  },
+  {
+    path: "/blogs",
+    element: <Blogs />,
   },
 ]);
 
