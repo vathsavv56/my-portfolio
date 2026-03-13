@@ -1,0 +1,7 @@
+<svg viewBox="0 0 260 100" xmlns="http://www.w3.org/2000/svg" width="260" height="100" style="color: #ffffff;" shape-rendering="crispEdges">
+  <g transform="translate(25, 15)">
+    <path d="M0 0 h14 v14 h-14 Z M56 0 h14 v14 h-14 Z M0 14 h14 v14 h-14 Z M56 14 h14 v14 h-14 Z M14 28 h14 v14 h-14 Z M42 28 h14 v14 h-14 Z M14 42 h14 v14 h-14 Z M42 42 h14 v14 h-14 Z M28 56 h14 v14 h-14 Z" fill="currentColor" />
+    <path d="M84 0 h14 v14 h-14 Z M98 0 h14 v14 h-14 Z M112 0 h14 v14 h-14 Z M126 0 h14 v14 h-14 Z M84 14 h14 v14 h-14 Z M84 28 h14 v14 h-14 Z M98 28 h14 v14 h-14 Z M112 28 h14 v14 h-14 Z M126 42 h14 v14 h-14 Z M98 56 h14 v14 h-14 Z M112 56 h14 v14 h-14 Z" fill="currentColor" />
+    <path d="M168 0 h14 v14 h-14 Z M182 0 h14 v14 h-14 Z M196 0 h14 v14 h-14 Z M154 14 h14 v14 h-14 Z M154 28 h14 v14 h-14 Z M168 28 h14 v14 h-14 Z M182 28 h14 v14 h-14 Z M154 42 h14 v14 h-14 Z M196 42 h14 v14 h-14 Z M168 56 h14 v14 h-14 Z M182 56 h14 v14 h-14 Z" fill="currentColor" />
+  </g>
+</svg>
