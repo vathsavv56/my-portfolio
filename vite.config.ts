@@ -7,6 +7,17 @@ import { defineConfig, loadEnv, type Plugin } from "vite";
 const UMAMI_CLOUD_API_URL = "https://api.umami.is/v1";
 const DEFAULT_RANGE_DAYS = 30;
 
+type UmamiStatsResponse = {
+  visitors?: number;
+  pageviews?: number;
+  visits?: number;
+  bounces?: number;
+};
+
+type UmamiActiveResponse = {
+  visitors?: number;
+};
+
 function getDateRange(days: number) {
   const endAt = Date.now();
   const startAt = endAt - days * 24 * 60 * 60 * 1000;
@@ -14,7 +25,7 @@ function getDateRange(days: number) {
   return { startAt, endAt };
 }
 
-async function fetchUmami(endpoint: string, apiKey: string) {
+async function fetchUmami<T>(endpoint: string, apiKey: string): Promise<T> {
   const response = await fetch(`${UMAMI_CLOUD_API_URL}${endpoint}`, {
     headers: {
       Accept: "application/json",
@@ -29,7 +40,7 @@ async function fetchUmami(endpoint: string, apiKey: string) {
     );
   }
 
-  return response.json();
+  return response.json() as Promise<T>;
 }
 
 async function getAnalyticsPayload(env: Record<string, string>) {
@@ -52,8 +63,11 @@ async function getAnalyticsPayload(env: Record<string, string>) {
 
   try {
     const [stats, active] = await Promise.all([
-      fetchUmami(`/websites/${websiteId}/stats?${query.toString()}`, apiKey),
-      fetchUmami(`/websites/${websiteId}/active`, apiKey),
+      fetchUmami<UmamiStatsResponse>(
+        `/websites/${websiteId}/stats?${query.toString()}`,
+        apiKey,
+      ),
+      fetchUmami<UmamiActiveResponse>(`/websites/${websiteId}/active`, apiKey),
     ]);
 
     return {
