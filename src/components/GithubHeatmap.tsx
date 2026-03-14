@@ -59,20 +59,20 @@ const GithubHeatmap = ({ username }: { username: string }) => {
         then left-to-right. This perfectly matches GitHub's chronological flow.
         w-max ensures the grid never squishes on smaller screens.
       */}
-      <div className="grid grid-rows-7 grid-flow-col gap-[2px] w-max mx-auto">
+      <div className="grid grid-rows-7 grid-flow-col gap-0.5 w-max mx-auto">
         {loading
           ? // Loading skeletons
             Array.from({ length: 364 }).map((_, i) => (
               <div
                 key={`skeleton-${i}`}
-                className="w-[10px] h-[10px] rounded-[2px] bg-zinc-800/50 animate-pulse"
+                className="w-2.5 h-2.5 rounded-0.5 bg-zinc-800/50 animate-pulse"
               />
             ))
           : // Actual contribution data
-            data.map((day, i) => (
+            data.map((day) => (
               <div
                 key={day.date}
-                className="w-[10px] h-[10px] rounded-[2px] hover:scale-125 hover:ring-1 hover:ring-zinc-400 hover:z-10 transition-all duration-200"
+                className="w-2.5 h-2.5 rounded-full cursor-pointer hover:scale-125 hover:ring-1 hover:ring-zinc-400 hover:z-10 transition-all duration-200"
                 style={{ backgroundColor: COLORS[day.level] }}
                 title={`${day.count} contributions on ${day.date}`}
               />
