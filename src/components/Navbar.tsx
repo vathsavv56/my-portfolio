@@ -7,7 +7,6 @@ import { GiHeraldicSun, GiMoon } from "react-icons/gi";
 const navLinks = [
   { to: "/", name: "Home" },
   { to: "/resume", name: "Resume" },
-  { to: "/projects", name: "Projects" },
   { to: "/blogs", name: "Blogs" },
 ];
 

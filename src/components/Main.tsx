@@ -3,7 +3,7 @@ import { Outlet } from "react-router"
 
 const Main = () => {
   return (
-    <div className="h-screen w-full">
+    <div className="h-fit w-full">
       <Navbar/>
       <Outlet />
     </div>

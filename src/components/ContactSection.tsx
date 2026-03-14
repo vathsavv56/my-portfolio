@@ -31,8 +31,8 @@ const ContactSection = () => {
   return (
     <div className="mt-4 ml-24">
       <p className="font-grosek text-[14px] font-normal leading-5 text-[lab(66.128_-0.0000298023_0.0000119209)] max-w-lg">
-        I <strong className="text-gray-100/80">Love</strong> building things,
-        embracing the <strong className="text-gray-100/80">Struggle</strong>,
+        I <strong className="text-gray-100/80">Love</strong> building things
+        embracing the <strong className="text-gray-100/80">Struggle</strong> .
         and living an adventurous{" "}
         <strong className="text-gray-100/80">Life</strong>.
       </p>

@@ -16,9 +16,9 @@ const Profilesection = () => {
           Inavolu Vathsav
         </h2>
         <div className="flex items-center gap-2 text-sm font-manrope font-normal text-gray-50/50">
-          <p>Student</p>
+          <p className="hover:text-white">Student</p>
           <i>.</i>
-          <p>Dilettante</p>
+          <p className="hover:text-white">Polymath</p>
           <i>.</i>
           <div
             onClick={() =>
@@ -27,7 +27,7 @@ const Profilesection = () => {
                 "_blank",
               )
             }
-            className="cursor-pointer flex items-center gap-1 hover:underline hover:underline-offset-2"
+            className="cursor-pointer flex items-center gap-1 hover:underline hover:underline-offset-2 hover:text-white"
           >
             <MdOutlineAlternateEmail />
             <p>inavoluvathsav@gmail.com</p>

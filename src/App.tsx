@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 import Main from "./components/Main";
 import Resume from "./components/Resume";
-import Projects from "./components/Projects";
 import Blogs from "./components/Blogs";
 import { cn } from "./cn";
 import Home from "./components/Home";
@@ -24,10 +23,6 @@ const router = createBrowserRouter([
     element: <Resume />,
   },
   {
-    path: "/projects",
-    element: <Projects />,
-  },
-  {
     path: "/blogs",
     element: <Blogs />,
   },
@@ -37,7 +32,7 @@ const App = () => {
   return (
     <div className={
         cn(
-            "h-fit w-full max-w-2xl border mx-auto bg-[#100F0F] text-white font-grosek container"
+            "h-fit w-full max-w-2xl mx-auto bg-[#100F0F] text-white font-grosek container"
         )
     }>
       <RouterProvider router={router} />
