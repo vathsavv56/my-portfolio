@@ -1,11 +1,11 @@
-import { Icon } from "@iconify/react"
+import { Icon } from "@iconify/react";
 
 type Skill = {
-  name: string
-  icon?: string
-  img?: string
-  color?: string
-}
+  name: string;
+  icon?: string;
+  img?: string;
+  color?: string;
+};
 
 const skills: Skill[] = [
   { name: "Java", icon: "logos:java" },
@@ -22,7 +22,7 @@ const skills: Skill[] = [
   // Using your provided Zustand SVG
   {
     name: "Zustand",
-    img: "https://user-images.githubusercontent.com/958486/218346783-72be5ae3-b953-4dd7-b239-788a882fdad6.svg"
+    img: "https://user-images.githubusercontent.com/958486/218346783-72be5ae3-b953-4dd7-b239-788a882fdad6.svg",
   },
 
   { name: "TailwindCSS", icon: "logos:tailwindcss-icon" },
@@ -35,20 +35,19 @@ const skills: Skill[] = [
 
   { name: "Maven", icon: "simple-icons:apachemaven", color: "#ffffff" },
   { name: "React Router", icon: "logos:react-router" },
-  { name: "Framer Motion", icon: "simple-icons:framer", color: "#ffffff" }
-]
+  { name: "Framer Motion", icon: "simple-icons:framer", color: "#ffffff" },
+];
 
 export default function SkillsSection() {
   return (
     <section className="w-full py-20 font-grosek">
       <div className="max-w-6xl mx-auto px-6">
-
-        <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-zinc-100">
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-3 mb-3">
+          <span className="block h-px w-10 bg-white/20"></span>
           Stack
         </h2>
 
         <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-10 gap-3">
-
           {skills.map((skill, i) => (
             <div
               key={i}
@@ -83,10 +82,8 @@ export default function SkillsSection() {
               )}
             </div>
           ))}
-
         </div>
-
       </div>
     </section>
-  )
+  );
 }

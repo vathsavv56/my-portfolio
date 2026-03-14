@@ -57,7 +57,8 @@ const ProjectSection: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight flex items-center gap-3">
+              <span className="block h-px w-10 bg-white/20"></span>
               Projects
             </h2>
             <p className="text-gray-400 mt-2 max-w-lg">

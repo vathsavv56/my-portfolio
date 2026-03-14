@@ -25,7 +25,7 @@ const CurrentlyLearning = () => {
             return (
               <div
                 key={i}
-                className="flex items-center gap-2 px-3 py-2 rounded-md border border-white/10 bg-white/5 hover:bg-white/10 transition"
+                className="flex items-center gap-2 px-3 py-2 rounded-md border border-white/10 bg-white/5 hover:bg-white/10 transition hover:cursor-pointer"
               >
                 <Icon className="text-sm opacity-80" />
                 <span className="text-sm text-gray-300">{item.name}</span>
