@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 import { cn } from "../cn";
-import { useState } from "react";
-import { GiHeraldicSun, GiMoon } from "react-icons/gi";
+
+import { GiHeraldicSun } from "react-icons/gi";
 
 const navLinks = [
   { to: "/", name: "Home" },
@@ -9,10 +9,7 @@ const navLinks = [
   { to: "/blogs", name: "Blogs" },
 ];
 
-
 const Navbar = () => {
-  const [mode, setMode] = useState<boolean>(true);
-
   return (
     <header>
       <nav className="p-5 flex items-center justify-between">
@@ -33,26 +30,9 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-3">
-         
-          <button
-            className="group relative inline-flex size-10 items-center justify-center rounded-md text-foreground transition-colorsfocus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 cursor-pointer"
-            onClick={() => setMode((p) => !p)}
-          >
-            <div
-              className={`absolute text-2xl transition-[opacity,transform] duration-200 ease-out ${
-                mode ? "opacity-100 scale-100" : "opacity-0 scale-50"
-              }`}
-            >
-              <GiHeraldicSun />
-            </div>
-            <div
-              className={`absolute text-xl transition-[opacity,transform] duration-200 ease-out  ${
-                !mode ? "opacity-100 scale-100" : "opacity-0 scale-50"
-              }`}
-            >
-              <GiMoon />
-            </div>
-          </button>
+          <div className="flex size-10 items-center justify-center text-amber-500 text-5xl drop-shadow-md transition-transform duration-500  cursor-pointer ">
+            <GiHeraldicSun />
+          </div>
         </div>
       </nav>
     </header>
