@@ -5,6 +5,7 @@ import Resume from "./components/Resume";
 import Blogs from "./components/Blogs";
 import { cn } from "./cn";
 import Home from "./components/Home";
+import PageAnalytics from "./components/PageAnalytics";
 
 const router = createBrowserRouter([
   {
@@ -14,18 +15,21 @@ const router = createBrowserRouter([
       {
         index:true,
         element:<Home/>
+      },
+      {
+        path: "resume",
+        element: <Resume />,
+      },
+      {
+        path: "blogs",
+        element: <Blogs />,
+      },
+      {
+        path: "analytics",
+        element: <PageAnalytics />,
       }
     ]
-  },
-
-  {
-    path: "/resume",
-    element: <Resume />,
-  },
-  {
-    path: "/blogs",
-    element: <Blogs />,
-  },
+  }
 ]);
 
 const App = () => {

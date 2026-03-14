@@ -1,13 +1,15 @@
-import Navbar from "./Navbar"
-import { Outlet } from "react-router"
+import Navbar from "./Navbar";
+import { Outlet } from "react-router";
+import UmamiAnalytics from "./UmamiAnalytics";
 
 const Main = () => {
   return (
     <div className="h-fit w-full">
-      <Navbar/>
+      <UmamiAnalytics />
+      <Navbar />
       <Outlet />
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;
