@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router";
 
 declare global {
@@ -18,7 +18,7 @@ const SCRIPT_ID = "umami-tracker-script";
 
 const UmamiAnalytics = () => {
   const location = useLocation();
-  const [isReady, setIsReady] = useState(Boolean(window.umami?.track));
+  const isScriptReadyRef = useRef(Boolean(window.umami?.track));
 
   const scriptUrl = import.meta.env.VITE_UMAMI_SCRIPT_URL?.trim();
   const websiteId = import.meta.env.VITE_UMAMI_WEBSITE_ID?.trim();
@@ -30,13 +30,25 @@ const UmamiAnalytics = () => {
       return;
     }
 
-    const handleLoad = () => setIsReady(true);
+    const handleLoad = () => {
+      isScriptReadyRef.current = true;
+      const url = `${location.pathname}${location.search}${location.hash}`;
+
+      if (window.umami?.track) {
+        window.umami.track((props) => ({
+          ...props,
+          title: document.title,
+          url,
+        }));
+      }
+    };
+
     const existingScript = document.getElementById(
       SCRIPT_ID,
     ) as HTMLScriptElement | null;
 
     if (window.umami?.track) {
-      setIsReady(true);
+      isScriptReadyRef.current = true;
       return;
     }
 
@@ -70,10 +82,18 @@ const UmamiAnalytics = () => {
     return () => {
       script.removeEventListener("load", handleLoad);
     };
-  }, [domains, hostUrl, scriptUrl, websiteId]);
+  }, [
+    domains,
+    hostUrl,
+    location.hash,
+    location.pathname,
+    location.search,
+    scriptUrl,
+    websiteId,
+  ]);
 
   useEffect(() => {
-    if (!isReady || !window.umami?.track) {
+    if (!isScriptReadyRef.current || !window.umami?.track) {
       return;
     }
 
@@ -84,7 +104,7 @@ const UmamiAnalytics = () => {
       title: document.title,
       url,
     }));
-  }, [isReady, location.hash, location.pathname, location.search]);
+  }, [location.hash, location.pathname, location.search]);
 
   return null;
 };
