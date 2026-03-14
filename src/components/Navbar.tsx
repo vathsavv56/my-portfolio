@@ -1,4 +1,3 @@
-
 import { NavLink } from "react-router";
 import { cn } from "../cn";
 import { useState } from "react";
@@ -10,13 +9,13 @@ const navLinks = [
   { to: "/blogs", name: "Blogs" },
 ];
 
+
 const Navbar = () => {
   const [mode, setMode] = useState<boolean>(true);
 
   return (
     <header>
       <nav className="p-5 flex items-center justify-between">
-       
         <div className="flex items-center gap-5">
           {navLinks.map((item, index) => (
             <NavLink
@@ -33,12 +32,8 @@ const Navbar = () => {
           ))}
         </div>
 
-      
         <div className="flex items-center gap-3">
-          <span className="text-sm font-medium text-gray-600 w-48 truncate">
-            this is some text
-          </span>
-
+         
           <button
             className="group relative inline-flex size-10 items-center justify-center rounded-md text-foreground transition-colorsfocus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 cursor-pointer"
             onClick={() => setMode((p) => !p)}
@@ -53,7 +48,6 @@ const Navbar = () => {
             <div
               className={`absolute text-xl transition-[opacity,transform] duration-200 ease-out  ${
                 !mode ? "opacity-100 scale-100" : "opacity-0 scale-50"
-                
               }`}
             >
               <GiMoon />

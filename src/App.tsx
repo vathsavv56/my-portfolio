@@ -32,7 +32,7 @@ const App = () => {
   return (
     <div className={
         cn(
-            "h-fit w-full max-w-2xl mx-auto bg-[#100F0F] text-white font-grosek container"
+            "h-fit w-full max-w-2xl mx-auto  bg-[#100F0F] text-white font-grosek container"
         )
     }>
       <RouterProvider router={router} />
