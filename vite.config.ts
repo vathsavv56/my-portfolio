@@ -45,13 +45,25 @@ async function fetchUmami<T>(endpoint: string, apiKey: string): Promise<T> {
 
 async function getAnalyticsPayload(env: Record<string, string>) {
   const apiKey = env.UMAMI_API_KEY;
-  const websiteId = env.VITE_UMAMI_WEBSITE_ID;
+  const websiteId = env.UMAMI_WEBSITE_ID || env.VITE_UMAMI_WEBSITE_ID;
   const rangeDays = Number(env.UMAMI_STATS_RANGE_DAYS || DEFAULT_RANGE_DAYS);
 
-  if (!apiKey || !websiteId) {
+  const missing: string[] = [];
+
+  if (!apiKey) {
+    missing.push("UMAMI_API_KEY");
+  }
+
+  if (!websiteId) {
+    missing.push("UMAMI_WEBSITE_ID (or VITE_UMAMI_WEBSITE_ID)");
+  }
+
+  if (missing.length > 0) {
     return {
       statusCode: 500,
-      body: { message: "Missing Umami API configuration." },
+      body: {
+        message: `Missing Umami API configuration: ${missing.join(", ")}`,
+      },
     };
   }
 

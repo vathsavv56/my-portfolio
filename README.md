@@ -21,6 +21,7 @@ Client-side tracking is configured through Vite env vars:
 
 ```env
 UMAMI_API_KEY=your-secret-api-key
+UMAMI_WEBSITE_ID=your-website-id
 UMAMI_STATS_RANGE_DAYS=30
 VITE_UMAMI_SCRIPT_URL=https://cloud.umami.is/script.js
 VITE_UMAMI_WEBSITE_ID=your-website-id
@@ -29,7 +30,7 @@ VITE_UMAMI_HOST_URL=https://your-umami-host.example.com
 VITE_UMAMI_SHARE_URL=https://your-shared-dashboard-url
 ```
 
-`UMAMI_API_KEY` is used only on the server for the `/api/analytics` proxy. Do not expose an Umami API key through a `VITE_` variable.
+`UMAMI_API_KEY` and `UMAMI_WEBSITE_ID` are used only on the server for the `/api/analytics` proxy. Do not expose an Umami API key through a `VITE_` variable.
 
 If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 

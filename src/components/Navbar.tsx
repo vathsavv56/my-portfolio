@@ -7,6 +7,7 @@ const navLinks = [
   { to: "/", name: "Home" },
   { to: "/resume", name: "Resume" },
   { to: "/blogs", name: "Blogs" },
+  {to:"/analytics", name:"Analytics"}
 ];
 
 const Navbar = () => {

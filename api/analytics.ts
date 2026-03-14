@@ -16,7 +16,11 @@ type ResponseLike = {
   json: (body: AnalyticsBody) => void;
 };
 
-function sendJson(response: ResponseLike, statusCode: number, body: AnalyticsBody) {
+function sendJson(
+  response: ResponseLike,
+  statusCode: number,
+  body: AnalyticsBody,
+) {
   response.status(statusCode).json(body);
 }
 
@@ -37,7 +41,9 @@ async function fetchUmami(endpoint: string, apiKey: string) {
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(errorText || `Umami request failed with ${response.status}`);
+    throw new Error(
+      errorText || `Umami request failed with ${response.status}`,
+    );
   }
 
   return response.json() as Promise<{
@@ -53,14 +59,25 @@ export default async function handler(
   response: ResponseLike,
 ) {
   const apiKey = process.env.UMAMI_API_KEY;
-  const websiteId = process.env.VITE_UMAMI_WEBSITE_ID;
+  const websiteId =
+    process.env.UMAMI_WEBSITE_ID || process.env.VITE_UMAMI_WEBSITE_ID;
   const rangeDays = Number(
     process.env.UMAMI_STATS_RANGE_DAYS || DEFAULT_RANGE_DAYS,
   );
 
-  if (!apiKey || !websiteId) {
+  const missing: string[] = [];
+
+  if (!apiKey) {
+    missing.push("UMAMI_API_KEY");
+  }
+
+  if (!websiteId) {
+    missing.push("UMAMI_WEBSITE_ID (or VITE_UMAMI_WEBSITE_ID)");
+  }
+
+  if (missing.length > 0) {
     return sendJson(response, 500, {
-      message: "Missing Umami API configuration.",
+      message: `Missing Umami API configuration: ${missing.join(", ")}`,
     });
   }
 
