@@ -29,7 +29,7 @@ const socials = [
 
 const ContactSection = () => {
   return (
-    <div className="mt-4 ml-24">
+    <div className="mt-4 ml-5 sm:ml-[140px]">
       <p className="font-grosek text-[14px] font-normal leading-5 text-[lab(66.128_-0.0000298023_0.0000119209)] max-w-lg">
         I <strong className="text-gray-100/80">Love</strong> building things
         embracing the <strong className="text-gray-100/80">Struggle</strong> .
