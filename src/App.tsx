@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 import Main from "./components/Main";
 import Resume from "./components/Resume";
-import Blogs from "./components/Blogs";
+
 import { cn } from "./cn";
 import Home from "./components/Home";
 import PageAnalytics from "./components/PageAnalytics";
@@ -23,10 +23,6 @@ const router = createBrowserRouter([
         element: <Resume />,
       },
       {
-        path: "blogs",
-        element: <Blogs />,
-      },
-      {
         path: "analytics",
         element: <PageAnalytics />,
       },
@@ -42,9 +38,11 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const loaderAnimationDuration = 6000;
+    const loaderEndPauseDuration = 1000;
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 4000);
+    }, loaderAnimationDuration + loaderEndPauseDuration);
 
     return () => clearTimeout(timer);
   }, []);

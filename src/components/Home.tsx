@@ -4,11 +4,12 @@ import Profilesection from "./Profilesection";
 import ProjectSection from "./ProjectSection";
 import RandomSection from "./RandomSection";
 import SkillsSection from "./SkillsSection";
-
+import AboutMe from "./AboutMe";
 const Home = () => {
   return (
     <div className="h-full w-full">
       <Profilesection />
+      <AboutMe />
       <ContactSection />
       <SkillsSection />
       <ProjectSection />
