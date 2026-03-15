@@ -5,9 +5,9 @@
 @import "tailwindcss";
 
 
-@theme{
+@theme {
     --font-jmono: "JetBrains Mono", monospace;
     --font-grosek: "Hanken Grotesk", sans-serif;
     --font-manrope: "Sora", "Manrope", "Inter", "Segoe UI", sans-serif;
-    
+
 }
