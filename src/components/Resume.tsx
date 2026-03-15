@@ -2,8 +2,8 @@ import autoCV from "../assets/autoCV.pdf";
 
 const Resume = () => {
   return (
-    <section className="w-full min-h-[80vh] p-4 md:p-6">
-      <div className="w-full h-[80vh] rounded-xl overflow-hidden border border-white/10 bg-black/20">
+    <section className="w-full min-h-screen p-4 md:p-6">
+      <div className="w-full h-[92vh] md:h-[95vh] rounded-xl overflow-hidden border border-white/10 bg-black/20">
         <iframe src={autoCV} title="AutoCV" className="w-full h-full" />
       </div>
 

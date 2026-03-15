@@ -51,9 +51,9 @@ export default function SkillsSection() {
           {skills.map((skill, i) => (
             <div
               key={i}
-              title={skill.name}
               className="
                 group
+                relative
                 flex items-center justify-center
                 h-11 w-11
                 rounded-full
@@ -66,6 +66,10 @@ export default function SkillsSection() {
                 hover:cursor-pointer
               "
             >
+              <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-zinc-700 bg-zinc-900 px-2 py-1 text-[10px] text-zinc-100 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+                {skill.name}
+              </span>
+
               {skill.img ? (
                 <img
                   src={skill.img}

@@ -47,10 +47,11 @@ const Project: React.FC<ProjectProps> = ({
     <article className="group relative rounded-2xl overflow-hidden border border-white/6 bg-linear-to-tr from-white/2 to-white/4 backdrop-blur-sm shadow-sm hover:shadow-lg transition-transform transform hover:-translate-y-1 cursor-pointer">
       <div className="relative h-52 md:h-56 lg:h-48 overflow-hidden">
         {image ? (
-          <LazyLoadImage
+          <img
             src={image}
             alt={title}
-            effect="blur"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
