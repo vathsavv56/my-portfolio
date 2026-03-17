@@ -1,4 +1,6 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
+import Toast from "./Toast";
+import luffyImg from "../assets/luffy.jpeg";
 
 import { DEFAULT_LOADER } from "../loaderMap";
 import type { LoaderKey } from "../loaderMap";
@@ -73,12 +75,19 @@ const lazyLoaderComponents: Record<
 const LoaderManager = ({ onComplete }: LoaderManagerProps) => {
   const loaderKey = useLoader();
 
+  const [showToast, setShowToast] = useState(true);
+
   useEffect(() => {
     const timer = window.setTimeout(() => {
       onComplete();
     }, TOTAL_LOADER_DURATION_MS);
 
+    // Hide toast after 2.5s
+    const toastTimer = window.setTimeout(() => setShowToast(false), 2500);
+
     return () => window.clearTimeout(timer);
+    // Also clear toast timer
+    window.clearTimeout(toastTimer);
   }, [onComplete]);
 
   if (!loaderKey) return null;
@@ -86,9 +95,18 @@ const LoaderManager = ({ onComplete }: LoaderManagerProps) => {
     lazyLoaderComponents[loaderKey] ?? lazyLoaderComponents[DEFAULT_LOADER];
 
   return (
-    <Suspense fallback={null}>
-      <LoaderComponent />
-    </Suspense>
+    <>
+      {showToast && (
+        <Toast
+          message={`Showing loader: ${loaderKey}`}
+          imageUrl={luffyImg}
+          onClose={() => setShowToast(false)}
+        />
+      )}
+      <Suspense fallback={null}>
+        <LoaderComponent />
+      </Suspense>
+    </>
   );
 };
 
