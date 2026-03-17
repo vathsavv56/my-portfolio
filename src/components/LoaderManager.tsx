@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useMemo } from "react";
+import { lazy, Suspense, useEffect } from "react";
 
 import { DEFAULT_LOADER } from "../loaderMap";
 import type { LoaderKey } from "../loaderMap";
@@ -57,7 +57,18 @@ const loaderComponents: Record<
   turkish: () => import("./loaders/TurkishLoader"),
   ukranian: () => import("./loaders/UkranianLoader"),
   vietnamese: () => import("./loaders/VietnameseLoader"),
+  greek: () => import("./loaders/GreekLoader"),
 };
+
+const lazyLoaderComponents: Record<
+  LoaderKey,
+  React.LazyExoticComponent<React.ComponentType<unknown>>
+> = Object.fromEntries(
+  Object.entries(loaderComponents).map(([key, importer]) => [
+    key,
+    lazy(importer),
+  ]),
+) as Record<LoaderKey, React.LazyExoticComponent<React.ComponentType<unknown>>>;
 
 const LoaderManager = ({ onComplete }: LoaderManagerProps) => {
   const loaderKey = useLoader();
@@ -70,14 +81,9 @@ const LoaderManager = ({ onComplete }: LoaderManagerProps) => {
     return () => window.clearTimeout(timer);
   }, [onComplete]);
 
-  const LoaderComponent = useMemo(() => {
-    if (!loaderKey) return null;
-    return lazy(
-      loaderComponents[loaderKey] ?? loaderComponents[DEFAULT_LOADER],
-    );
-  }, [loaderKey]);
-
-  if (!LoaderComponent) return null;
+  if (!loaderKey) return null;
+  const LoaderComponent =
+    lazyLoaderComponents[loaderKey] ?? lazyLoaderComponents[DEFAULT_LOADER];
 
   return (
     <Suspense fallback={null}>

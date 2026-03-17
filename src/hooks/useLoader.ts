@@ -33,29 +33,29 @@ export const useLoader = () => {
     if (isDev) {
       if (cookieValue && isLoaderKey(cookieValue)) {
         localStorage.setItem(STORAGE_KEY, cookieValue);
-        setLoaderKey(cookieValue);
+        setTimeout(() => setLoaderKey(cookieValue), 0);
         return;
       }
 
       localStorage.setItem(STORAGE_KEY, fallbackLoader);
-      setLoaderKey(fallbackLoader);
+      setTimeout(() => setLoaderKey(fallbackLoader), 0);
       return;
     }
 
     const locked = localStorage.getItem(STORAGE_KEY);
     if (locked && isLoaderKey(locked)) {
-      setLoaderKey(locked);
+      setTimeout(() => setLoaderKey(locked), 0);
       return;
     }
 
     if (cookieValue && isLoaderKey(cookieValue)) {
       localStorage.setItem(STORAGE_KEY, cookieValue);
-      setLoaderKey(cookieValue);
+      setTimeout(() => setLoaderKey(cookieValue), 0);
       return;
     }
 
     localStorage.setItem(STORAGE_KEY, fallbackLoader);
-    setLoaderKey(fallbackLoader);
+    setTimeout(() => setLoaderKey(fallbackLoader), 0);
   }, []);
 
   return loaderKey;
