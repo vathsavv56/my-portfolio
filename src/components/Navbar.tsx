@@ -6,8 +6,6 @@ import { GiHeraldicSun } from "react-icons/gi";
 const navLinks = [
   { to: "/", name: "Home" },
   { to: "/resume", name: "Resume" },
-  { to: "/blogs", name: "Blogs" },
-  {to:"/analytics", name:"Analytics"},
   {to:"/playground" , name:"Playground"}
 ];
 

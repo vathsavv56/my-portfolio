@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
 import Main from "./components/Main";
@@ -8,7 +8,7 @@ import { cn } from "./cn";
 import Home from "./components/Home";
 import PageAnalytics from "./components/PageAnalytics";
 import PlayGround from "./components/PlayGround";
-import Loader from "./components/Loader";
+import LoaderManager from "./components/LoaderManager";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,20 +35,10 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
-    const loaderAnimationDuration = 6000;
-    const loaderEndPauseDuration = 1000;
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, loaderAnimationDuration + loaderEndPauseDuration);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return <Loader />;
+  if (!loaded) {
+    return <LoaderManager onComplete={() => setLoaded(true)} />;
   }
 
   return (

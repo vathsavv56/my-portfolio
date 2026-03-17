@@ -15,16 +15,12 @@ const skills: Skill[] = [
   { name: "React", icon: "logos:react" },
   { name: "Next.js", icon: "logos:nextjs-icon" },
   { name: "Node.js", icon: "logos:nodejs-icon" },
-
   { name: "Express", icon: "simple-icons:express", color: "#ffffff" },
   { name: "MongoDB", icon: "logos:mongodb-icon" },
-
-  // Using your provided Zustand SVG
   {
     name: "Zustand",
     img: "https://user-images.githubusercontent.com/958486/218346783-72be5ae3-b953-4dd7-b239-788a882fdad6.svg",
   },
-
   { name: "TailwindCSS", icon: "logos:tailwindcss-icon" },
   { name: "HTML", icon: "logos:html-5" },
   { name: "CSS", icon: "logos:css-3" },
@@ -32,8 +28,11 @@ const skills: Skill[] = [
   { name: "Docker", icon: "logos:docker-icon" },
   { name: "Bun", icon: "logos:bun" },
   { name: "Linux", icon: "logos:linux-tux" },
-
-  { name: "Maven", icon: "simple-icons:apachemaven", color: "#ffffff" },
+  {
+    name: "shadcn/ui",
+    img: "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/shadcnui.svg",
+    color: "#ffffff",
+  },
   { name: "React Router", icon: "logos:react-router" },
   { name: "Framer Motion", icon: "simple-icons:framer", color: "#ffffff" },
 ];
@@ -75,6 +74,7 @@ export default function SkillsSection() {
                   src={skill.img}
                   alt={skill.name}
                   className="h-5 w-5 object-contain"
+                  style={skill.color ? { filter: "brightness(0) invert(1)" } : undefined}
                 />
               ) : (
                 <Icon
