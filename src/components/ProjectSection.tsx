@@ -3,7 +3,7 @@ import Project from "./Project";
 import type { ProjectProps } from "./Project";
 import Kern from "../assets/kern-1.jpeg";
 import Ging from "../assets/ging.png";
-import Lexi from "../assets/resume-ats.jpeg";
+import ReactLoaders from "../assets/react-loaders.png";
 import { BsArrowUpRight } from "react-icons/bs";
 
 const projects: ProjectProps[] = [
@@ -32,22 +32,13 @@ const projects: ProjectProps[] = [
     live: "https://www.npmjs.com/package/@vathsavv56/ging",
   },
   {
-    title: "Chaos API",
+    title: "React Hello Loaders",
     description:
-      "A playful REST API with many routes that return unpredictable and fun data. Built to practice API design, rate-limiting, and deploy pipelines.",
-    image: Kern,
-    tags: ["bun", "REST API", "Express", "MongoDB"],
-    github: "https://github.com/vathsavv56/chaos",
-    live: "https://kern-sigma.vercel.app",
-  },
-  {
-    title: "LexiScore",
-    description:
-      "An ATS resume scanner that analyzes resumes to provide an ATS-compatibility score and actionable suggestions for improving match rates.",
-    image: Lexi,
-    tags: ["React", "TypeScript", "AI", "Resume Analysis"],
-    github: "https://github.com/vathsavv56/lexiscore",
-    live: "https://resume-ats-gamma.vercel.app/",
+      "A collection of many playful text hello loaders built in React, featuring different animated loading styles and language variations.",
+    image: ReactLoaders,
+    tags: ["React", "TypeScript", "Loaders", "Animation"],
+    github: "https://github.com/vathsavv56/React-HelloLoaders",
+    live: "https://react-hello-loaders.vercel.app/",
   },
 ];
 
